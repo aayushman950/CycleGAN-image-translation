@@ -43,3 +43,29 @@ class ResNetGenerator(tf.keras.Model):
         x = self.dec3(x, training=training)
 
         return tf.nn.tanh(x)
+
+
+# Patch GAN
+class Discriminator(tf.keras.Model):
+    def __init__(self, out_channels=1, nker=64, norm='inorm', lsgan=True):
+        super(Discriminator, self).__init__()
+
+        self.lsgan = lsgan
+
+        self.dsc1 = CNR2d(1 * nker, kernel_size=4, stride=2, norm=None, relu=0.2)
+        self.dsc2 = CNR2d(2 * nker, kernel_size=4, stride=2, norm=norm, relu=0.2)
+        self.dsc3 = CNR2d(4 * nker, kernel_size=4, stride=2, norm=norm, relu=0.2)
+        self.dsc4 = CNR2d(8 * nker, kernel_size=4, stride=1, norm=norm, relu=0.2, padding=1, padding_type='ZERO')
+        self.dsc5 = CNR2d(out_channels, kernel_size=4, stride=1, norm=None, relu=None, bias=False, padding=1, padding_type='ZERO')
+
+    def call(self, x, training=False):
+        x = self.dsc1(x)
+        x = self.dsc2(x)
+        x = self.dsc3(x)
+        x = self.dsc4(x)
+        x = self.dsc5(x)
+        if not self.lsgan:
+            x = tf.nn.sigmoid(x)
+
+        return x
+
