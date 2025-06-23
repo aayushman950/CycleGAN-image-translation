@@ -28,7 +28,6 @@ cd CycleGAN-image-translation
 * TensorFlow: 2.10+
 * TensorFlow Addons: 0.20.0
 * Keras: 2.10.0
-* TensorFlow Estimator: 2.10.0
 * NumPy: 1.23.5
 
 You can use Conda:
