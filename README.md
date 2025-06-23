@@ -51,7 +51,7 @@ dataset/
 
 Example dataset used:
 
-* [Monet2Photo](https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/) from the original CycleGAN paper
+* [Monet2Photo]([https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/](https://efrosgans.eecs.berkeley.edu/cyclegan/datasets/?fbclid=IwY2xjawLGVmhleHRuA2FlbQIxMABicmlkETFNWERlM1paTW52WlBwQ05oAR6IiOXJxgGUyQM_gajErh_MR7AJUzpFbWFwCzZZkl44ATUc-Is_B_ibPiI6gQ_aem_ml5IZucqiSFlgv6ENKaINA)) from the original CycleGAN paper
 
 Update `DATA_DIR` in `train.py` to point to your dataset folder.
 
